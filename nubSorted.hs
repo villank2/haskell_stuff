@@ -1,5 +1,5 @@
 nubSorted :: Eq a => [a] -> [a]
-nubSorted n [] = []
-nubSorted n [h] = [h]
-nubSorted n (h:t) | h /= head tail = [h] ++ nubSorted n t
-                  | otherwise = [] ++ nubSorted n t
+nubSorted [] = []
+nubSorted (h:[]) = [h] 
+nubSorted (h:h2:t) | h == h2 = nubSorted (h2:t)
+                   | otherwise = [h] ++ nubSorted (h2:t)
